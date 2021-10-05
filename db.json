@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Olena Tsapliuk",
+      "number": "987655444",
+      "id": 3
+    },
+    {
+      "name": "Ehor Derval",
+      "number": "23344566",
+      "id": 4
+    },
+    {
+      "name": "Zakhar Tsapliuk",
+      "number": "234-45-67",
+      "id": 5
+    }
+  ]
+}
