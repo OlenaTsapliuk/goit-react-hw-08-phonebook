@@ -1,0 +1,21 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #03032e;
+  text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+}
+
+.activeLink {
+  composes: link;
+  color: #3a0d8f;
+}
+.header {
+  border-bottom: 1px solid #2a363b;
+  display: flex;
+  justify-content: space-between;
+}
+.auth {
+}
