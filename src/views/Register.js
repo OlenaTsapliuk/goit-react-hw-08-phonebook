@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { authOperations } from '../redux/auth';
 import s from './Views.module.css';
-import SigInGoogle from '../Components/SiginGoogle';
+// import SigInGoogle from '../Components/SiginGoogle';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -89,9 +89,9 @@ export default function Register() {
       <Link to="/login" className={s.linkAccount}>
         Do you have an account? Login
       </Link>
-      <br />
+      {/* <br />
       <p>Do not want to create an account? Use your Google account</p>
-      <SigInGoogle />
+      <SigInGoogle /> */}
     </div>
   );
 }
