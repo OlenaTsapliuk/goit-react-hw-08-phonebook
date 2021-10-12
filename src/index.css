@@ -1,11 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 body {
   background-color: rgb(234, 236, 240);
   color: #000000;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-style: normal;
   line-height: 1.33333;
+  background-size: cover;
+  background-position: center;
+  background-image: 
+  /* linear-gradient(
+      rgba(184, 189, 230, 0.829),
+      rgba(186, 191, 240, 0.829)
+    ), */ url('./images/fon.jpg');
 }
 
 img {
@@ -43,3 +50,14 @@ li {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+/* @media screen and (min-width: 1800px) {
+  body {
+    background-size: cover;
+    background-image: 
+    linear-gradient(
+        rgba(47, 48, 58, 0.829),
+        rgba(47, 48, 58, 0.829)
+      ),
+      url('./images/fon.jpg');
+  }
+} */

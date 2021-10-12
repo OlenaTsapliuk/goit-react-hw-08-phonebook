@@ -1,10 +1,33 @@
 .wrapper {
-  padding: 40px 0;
+  padding: 20px 0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .title {
   margin-bottom: 20px;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 30px;
+  color: #03032e;
+  text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+}
+.img {
+  width: 250px;
+  height: 200px;
+}
+.pageTitle {
+  composes: title;
+  margin-top: 20px;
+  text-shadow: none;
+  text-align: center;
+}
+.description {
+  margin-bottom: 10px;
+  color: #0a58ca;
+}
+.form {
+  margin-right: 450px;
 }

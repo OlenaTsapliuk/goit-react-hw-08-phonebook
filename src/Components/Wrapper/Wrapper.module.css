@@ -1,0 +1,13 @@
+.card {
+  width: 550px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: auto;
+  height: 80vh;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ad91ce;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  overflow-y: auto;
+}
