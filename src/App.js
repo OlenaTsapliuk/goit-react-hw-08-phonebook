@@ -1,12 +1,12 @@
 import { Switch } from 'react-router-dom';
 import { Suspense, useEffect, lazy } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import Container from './Components/Container';
 import Loader from './Components/Loader/Loader';
 import PrivateRoute from './Components/PrivateRoute';
 import PublicRoute from './Components/PublicRout';
-import { authOperations } from './redux/auth';
+import { authOperations, authSelectors } from './redux/auth';
 import AppBar from './Components/AppBar/AppBar';
 import Wrapper from './Components/Wrapper/Wrapper';
 
@@ -25,48 +25,51 @@ const Contacts = lazy(() =>
 
 function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Container>
-      <AppBar />
-      <Wrapper>
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <PublicRoute exact path="/" component={Home} />
-            <PublicRoute
-              path="/register"
-              redirectTo="/login"
-              restricted
-              component={Register}
-            />
-            <PublicRoute
-              path="/login"
-              redirectTo="/contacts"
-              restricted
-              component={Login}
-            />
-            <PrivateRoute
-              path="/contacts"
-              redirectTo="/login"
-              component={Contacts}
-            />
-          </Switch>
-        </Suspense>
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            style: {
-              background: '#2b0330',
-              color: '#fff',
-            },
-          }}
-        />
-      </Wrapper>
-    </Container>
+    !isFetchingCurrentUser && (
+      <Container>
+        <AppBar />
+        <Wrapper>
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <PublicRoute exact path="/" component={Home} />
+              <PublicRoute
+                path="/register"
+                redirectTo="/contacts"
+                restricted
+                component={Register}
+              />
+              <PublicRoute
+                path="/login"
+                redirectTo="/contacts"
+                restricted
+                component={Login}
+              />
+              <PrivateRoute
+                path="/contacts"
+                redirectTo="/login"
+                component={Contacts}
+              />
+            </Switch>
+          </Suspense>
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: {
+                background: '#2b0330',
+                color: '#fff',
+              },
+            }}
+          />
+        </Wrapper>
+      </Container>
+    )
   );
 }
 

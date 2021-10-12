@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { authOperations } from '../redux/auth';
 import s from './Views.module.css';
+import SigInGoogle from '../Components/SiginGoogle';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -45,6 +46,8 @@ export default function Register() {
             value={name}
             onChange={handleChange}
             placeholder="Enter your name"
+            required
+            isInvalid
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
@@ -56,6 +59,8 @@ export default function Register() {
             value={email}
             onChange={handleChange}
             placeholder="Enter email"
+            required
+            isInvalid
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -70,6 +75,8 @@ export default function Register() {
             value={password}
             onChange={handleChange}
             placeholder="Password"
+            required
+            isInvalid
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -79,7 +86,12 @@ export default function Register() {
           Submit
         </Button>
       </Form>
-      <Link to="/login" className={s.linkAccount}>Do you have an account? Login</Link>
+      <Link to="/login" className={s.linkAccount}>
+        Do you have an account? Login
+      </Link>
+      <br />
+      <p>Do not want to create an account? Use your Google account</p>
+      <SigInGoogle />
     </div>
   );
 }

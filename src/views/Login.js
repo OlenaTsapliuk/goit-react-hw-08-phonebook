@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { authOperations } from '../redux/auth';
 import s from './Views.module.css';
+import SigInGoogle from '../Components/SiginGoogle';
+import LogOutGoogle from '../Components/LogOutGoogle';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -63,6 +65,10 @@ export default function Login() {
         </Button>
       </Form>
       <Link to="/register">Does not have an account? Register please</Link>
+      <br />
+      <p>Do not want to create an account? Use your Google account</p>
+      <SigInGoogle />
+      {/* <LogOutGoogle /> */}
     </>
   );
 }
